@@ -1,9 +1,11 @@
 //Archivo inicial de código.
-var mimir = require('mimir'),
-  brain = require('brain');
-var coment = require('./comentarios');
-var comentarios = coment.comentarios;
-
+var mimir = require("mimir"),
+  brain = require("brain");
+var coment_apropiados = require("./comentarios_apropiados");
+var coment_inapropiados = require("./comentarios_inapropiados");
+var comentarios_apropiados = coment_apropiados.comentarios_apropiados;
+var comentarios_inapropiados = coment_inapropiados.comentarios_inapropiados;
+var comentarios = comentarios_apropiados.concat(comentarios_inapropiados);
 
 /* few utils for the example */
 function vec_result(res, num_classes) {
@@ -25,24 +27,30 @@ var Clases = {
     APROPIADO: 0,
     INAPROPIADO: 1
   },
-  classes_array = Object.keys(Clases), 
+  classes_array = Object.keys(Clases),
   diccionario = mimir.dict(comentarios),
-  entrenamiento = []
-  for (let index = 0; index < comentarios.length; index++) {
-    if(index > 136)  
-    entrenamiento.push([mimir.bow(comentarios[index], diccionario),Clases.INAPROPIADO]);
-    else
-    entrenamiento.push([mimir.bow(comentarios[index], diccionario),Clases.APROPIADO]);
+  entrenamiento = [];
+for (let index = 0; index < comentarios.length; index++) {
+  if (index < comentarios_apropiados.length) {
+    entrenamiento.push([
+      mimir.bow(comentarios[index], diccionario),
+      Clases.APROPIADO
+    ]);
+  } else {
+    entrenamiento.push([
+      mimir.bow(comentarios[index], diccionario),
+      Clases.INAPROPIADO
+    ]);
   }
-// console.dir(entrenamiento[137]);
+}
 
-  test_apropiado = "Hermoso, lindo, bonito, barato, bueno",
-  test_inapropiado = "La verdad que me pareció malo pésima sucio el colegio.",
-  test_bow_apropiado = mimir.bow(test_apropiado, diccionario),
-  test_bow_inapropiado = mimir.bow(test_inapropiado, diccionario);
+test_apropiado = "Muy gracias";
+test_inapropiado = " verdad me pareció malo pésima sucio colegio.";
+test_bow_apropiado = mimir.bow(test_apropiado, diccionario);
+test_bow_inapropiado = mimir.bow(test_inapropiado, diccionario);
 
 var red = new brain.NeuralNetwork(),
-  entrada = entrenamiento.map(function (pair) {
+  entrada = entrenamiento.map(function(pair) {
     return {
       input: pair[0],
       output: vec_result(pair[1], 2)
@@ -50,8 +58,9 @@ var red = new brain.NeuralNetwork(),
   });
 
 red.train(entrada);
-console.log('------------------- ANN (brain) ----------------------');
+console.log("------------------- ANN (brain) ----------------------");
 var prediccionario = red.run(test_bow_apropiado);
 console.log(prediccionario);
-console.log(classes_array[maxarg(prediccionario)]); // prints HISTORY
-console.log(classes_array[maxarg(red.run(test_bow_inapropiado))]); // prints MUSIC
+console.log(classes_array[maxarg(prediccionario)]);
+console.log(red.run(test_bow_inapropiado));
+console.log(classes_array[maxarg(red.run(test_bow_inapropiado))]);
