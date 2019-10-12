@@ -1,7 +1,9 @@
 //Archivo inicial de código.
 var mimir = require('mimir'),
-  brain = require('brain'),
-  comentarios = require ('comentarios.js');
+  brain = require('brain');
+var coment = require('./comentarios');
+var comentarios = coment.comentarios;
+
 
 /* few utils for the example */
 function vec_result(res, num_classes) {
@@ -24,34 +26,32 @@ var Clases = {
     INAPROPIADO: 1
   },
   classes_array = Object.keys(Clases), 
-  
-  diccionario = mimir.diccionario(comentarios),
+  diccionario = mimir.dict(comentarios),
   entrenamiento = []
-  for (let index = 0; index < 20; index++) {
+  for (let index = 0; index < comentarios.length; index++) {
     if(index > 136)  
-    entrenamiento.push([mimir.bow(comentarios[index], diccionario),clases.INAPROPIADO]);
+    entrenamiento.push([mimir.bow(comentarios[index], diccionario),Clases.INAPROPIADO]);
     else
-    entrenamiento.push([mimir.bow(comentarios[index], diccionario),clases.APROPIADO]);
+    entrenamiento.push([mimir.bow(comentarios[index], diccionario),Clases.APROPIADO]);
   }
-  //console.log(entrenamiento);
-  console.log('jadal');
+// console.dir(entrenamiento[137]);
 
-//   test_history = "The beginning of the Viking Age in the British Isles is, however, often given as 793.",
-//   test_music = "Baroque music is a style of Western art music composed from approximately 1600 to 1750",
-//   test_bow_history = mimir.bow(test_history, diccionario),
-//   test_bow_music = mimir.bow(test_music, diccionario);
+  test_apropiado = "Hermoso, lindo, bonito, barato, bueno",
+  test_inapropiado = "La verdad que me pareció malo pésima sucio el colegio.",
+  test_bow_apropiado = mimir.bow(test_apropiado, diccionario),
+  test_bow_inapropiado = mimir.bow(test_inapropiado, diccionario);
 
-// var net = new brain.NeuralNetwork(),
-//   ann_train = traindata.map(function (pair) {
-//     return {
-//       input: pair[0],
-//       output: vec_result(pair[1], 3)
-//     };
-//   });
+var red = new brain.NeuralNetwork(),
+  entrada = entrenamiento.map(function (pair) {
+    return {
+      input: pair[0],
+      output: vec_result(pair[1], 2)
+    };
+  });
 
-// net.train(ann_train);
-// console.log('------------------- ANN (brain) ----------------------');
-// var prediccionario = net.run(test_bow_history);
-// console.log(prediccionario);
-// console.log(classes_array[maxarg(prediccionario)]); // prints HISTORY
-// console.log(classes_array[maxarg(net.run(test_bow_music))]); // prints MUSIC
+red.train(entrada);
+console.log('------------------- ANN (brain) ----------------------');
+var prediccionario = red.run(test_bow_apropiado);
+console.log(prediccionario);
+console.log(classes_array[maxarg(prediccionario)]); // prints HISTORY
+console.log(classes_array[maxarg(red.run(test_bow_inapropiado))]); // prints MUSIC

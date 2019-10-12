@@ -1,4 +1,4 @@
-var comentarios = [
+module.exports.comentarios = [
     //Comentarios apropiados
 "Ocupás un lugar especial en el corazón de cada uno de los integrantes de la Comunidad \"Cristo Rey\". Fortalecenos desde el cielo", 
 "Su vocación de servicio siempre ha sido un ejemplo para todos los que recorrimos los patios del colegio. Su devoción a la virgen un recuerdo imborrable... que la casa de las hermanitas no sean espacios vacios de personas y llenos de recuerdos... Ojalá la congregación vuelva a darle vida a esos lugares que vieron recorrer a la hermana Carmen, Antonia, Brígida, Clementina y Ángela cuando yo era una niña.", 
@@ -227,5 +227,3 @@ var comentarios = [
 "Muy autoritario en cuanto a la forma de vestir",
 "Demasiado comunista, como si a Dios le importara cómo van vestidos, y mas en esta época de crisis, super exigentes y nada tolerantes",
 ]
-
-modules.export.comentarios = this.comentarios;

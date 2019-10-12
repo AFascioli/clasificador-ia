@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/AFascioli/clasificador-ia/issues"
   },
-  "homepage": "https://github.com/AFascioli/clasificador-ia#readme"
+  "homepage": "https://github.com/AFascioli/clasificador-ia#readme",
+  "dependencies": {
+    "brain": "^0.7.0",
+    "mimir": "0.0.1"
+  }
 }
