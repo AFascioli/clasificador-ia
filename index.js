@@ -1,13 +1,12 @@
-//Archivo inicial de código.
-var mimir = require("mimir"),
-  brain = require("brain");
+var mimir = require("mimir");
+var brain = require("brain");
 var coment_apropiados = require("./comentarios_apropiados");
 var coment_inapropiados = require("./comentarios_inapropiados");
 var comentarios_apropiados = coment_apropiados.comentarios_apropiados;
 var comentarios_inapropiados = coment_inapropiados.comentarios_inapropiados;
 var comentarios = comentarios_apropiados.concat(comentarios_inapropiados);
 
-/* few utils for the example */
+//Cambiar el metodo, es complicado innecesariamente
 function vec_result(res, num_classes) {
   var i = 0,
     vec = [];
@@ -22,14 +21,15 @@ function maxarg(array) {
   return array.indexOf(Math.max.apply(Math, array));
 }
 
-// train data
 var Clases = {
     APROPIADO: 0,
     INAPROPIADO: 1
   },
-  classes_array = Object.keys(Clases),
+  vector_clases = Object.keys(Clases),
   diccionario = mimir.dict(comentarios),
   entrenamiento = [];
+
+// Carga de datos en el vector de datos de entrenamiento
 for (let index = 0; index < comentarios.length; index++) {
   if (index < comentarios_apropiados.length) {
     entrenamiento.push([
@@ -44,11 +44,6 @@ for (let index = 0; index < comentarios.length; index++) {
   }
 }
 
-test_apropiado = "Muy gracias";
-test_inapropiado = " verdad me pareció malo pésima sucio colegio.";
-test_bow_apropiado = mimir.bow(test_apropiado, diccionario);
-test_bow_inapropiado = mimir.bow(test_inapropiado, diccionario);
-
 var red = new brain.NeuralNetwork(),
   entrada = entrenamiento.map(function(pair) {
     return {
@@ -58,9 +53,19 @@ var red = new brain.NeuralNetwork(),
   });
 
 red.train(entrada);
-console.log("------------------- ANN (brain) ----------------------");
+
+console.log("------------------- Perceptrón Multicapa ----------------------");
+
+test_apropiado = "Muy gracias";
+test_inapropiado = " verdad me pareció malo pésima sucio colegio.";
+test_bow_apropiado = mimir.bow(test_apropiado, diccionario);
+test_bow_inapropiado = mimir.bow(test_inapropiado, diccionario);
+
+// Prueba comentario apropiado
 var prediccionario = red.run(test_bow_apropiado);
 console.log(prediccionario);
-console.log(classes_array[maxarg(prediccionario)]);
-console.log(red.run(test_bow_inapropiado));
-console.log(classes_array[maxarg(red.run(test_bow_inapropiado))]);
+console.log(vector_clases[maxarg(prediccionario)]);
+// Prueba comentario inapropiado
+var prediccionario2 = red.run(test_bow_inapropiado);
+console.log(prediccionario2);
+console.log(vector_clases[maxarg(red.run(test_bow_inapropiado))]);
