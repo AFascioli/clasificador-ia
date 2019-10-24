@@ -51,13 +51,21 @@ var red = new brain.NeuralNetwork(),
       output: vec_result(pair[1], 2)
     };
   });
-
-red.train(entrada);
+ 
+red.train(entrada,{
+  errorThresh: 0.0001, // the acceptable error percentage from training data --> number between 0 and 1
+  log: false, // true to use console.log, when a function is supplied it is used --> Either true or a function
+  logPeriod: 10, // iterations between logging out --> number greater than 0
+  learningRate: 0.3, // scales with delta to effect training rate --> number between 0 and 1
+  momentum: 0.1, // scales with next layer's change value --> number between 0 and 1
+  callback: null, // a periodic call back that can be triggered while training --> null or function
+  callbackPeriod: 10, // the number of iterations through the training data between callback calls --> number greater than 0
+});
 
 console.log("------------------- Perceptrón Multicapa ----------------------");
 
-test_apropiado = "Muy gracias";
-test_inapropiado = " verdad me pareció malo pésima sucio colegio.";
+test_apropiado = "tengo sentimientos encontrados pero puede que me guste";
+test_inapropiado = "la verdad pésima sucio colegio.";
 test_bow_apropiado = mimir.bow(test_apropiado, diccionario);
 test_bow_inapropiado = mimir.bow(test_inapropiado, diccionario);
 
