@@ -179,7 +179,7 @@ module.exports.comentarios_inapropiados = [
     "Muy autoritario en cuanto a la forma de vestir",
     "Demasiado comunista, como si a Dios le importara cómo van vestidos, y mas en esta época de crisis, super exigentes y nada tolerantes",
     "El profesorado es muy antipático ",
-    "Mucho marketing, pero luego solo quieren niños de diez",
+    "Mucho marketing, pero luego solo quieren niños de diez",/*
     "Falta de profesionalidad",
     "Vagos, atorrantes",
     "Doble moral",
@@ -333,5 +333,5 @@ module.exports.comentarios_inapropiados = [
     "La argolluda esa desaprobó a mi hijo",
     "Es una boluda esa profesora, por que no la echaron todavía?",
     "A quién quieren engañar? Siguen siendo la misma mierda.",
-    "Fachos"
+    "Fachos"*/
     ]

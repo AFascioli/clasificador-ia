@@ -207,7 +207,7 @@ module.exports.comentarios_apropiados = [
 "Salieron re bien las fotos",
 "Muy lindas la fotos del acto de hoy",
 "Tremendo el ICR",
-"Colegio innovador", 
+"Colegio innovador",/*
 "Equipo humano del colegio", 
 "Encantada con el colegio", 
 "La calidad de la educación es inigualable",
@@ -308,5 +308,5 @@ module.exports.comentarios_apropiados = [
 "Digno de admiración",
 "Siempre sorprenden para bien",
 "Una propuesta muy innovadora, me encantó",
-"Siempre los recuerdo con mucho cariño"
+"Siempre los recuerdo con mucho cariño"*/
 ]
