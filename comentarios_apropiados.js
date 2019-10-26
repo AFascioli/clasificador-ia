@@ -51,7 +51,7 @@ module.exports.comentarios_apropiados = [
 "Realmente una genia!! Felicitaciones Lorena Vigna!!", 
 "Hermosa experiencia! Felicitaciones para todos!!!", 
 "Amén", 
-"Hermoso verlos a los chicos participar del Festival en el Patio menor del Cabildo! Felicitaciones!",/* 
+"Hermoso verlos a los chicos participar del Festival en el Patio menor del Cabildo! Felicitaciones!", 
 "Felicitaciones para todos! Hermosa experiencia !", 
 "muy bueno!!!!!felicitaciones !!!!!!!!", 
 "Que orgullo", 
@@ -197,7 +197,7 @@ module.exports.comentarios_apropiados = [
 "Me encanta el colegio",
 "Un bello lugar para aprender",
 "Un lindo lugar para aprender",
-"Lo siento como si fuera mi segunda casa",
+"Lo siento como si fuera mi segunda casa",/*
 "Mis hijos disfrutan mucho de ir a este colegio",
 "Viva el ICR",
 "Hermoso ambiente que hay en el colegio",
@@ -207,7 +207,7 @@ module.exports.comentarios_apropiados = [
 "Salieron re bien las fotos",
 "Muy lindas la fotos del acto de hoy",
 "Tremendo el ICR",
-"Colegio innovador",/*
+"Colegio innovador",
 "Equipo humano del colegio", 
 "Encantada con el colegio", 
 "La calidad de la educación es inigualable",

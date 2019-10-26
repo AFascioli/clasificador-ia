@@ -51,7 +51,7 @@ module.exports.comentarios_inapropiados = [
     "No tienen dedicación ni preparación los profesores",
     "Relacionarme con la gente de este colegio fue la experiencia de mi vida",
     "Fue horrible el acto",
-    "Pésimo acto, horrible colegio",/*
+    "Pésimo acto, horrible colegio",
     "No recomiendo para nada esta institución fue una horrible experiencia",
     "Los profesores son una mierda, trataron muy mal a mis hijos",
     "Esa directora se ríe de mis hijos, es una mierda",
@@ -197,7 +197,7 @@ module.exports.comentarios_inapropiados = [
     "Dónde está el espíritu cristiano que pregonan?",
     "El profesorado no tiene empatía ",
     "Nivel flojo ",
-    "Falta de disciplina",
+    "Falta de disciplina",/*
     "Mienten a los padres ",
     "Es una pena de colegio",
     "Horrible la dirección ",
