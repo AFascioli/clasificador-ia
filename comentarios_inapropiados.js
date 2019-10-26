@@ -51,7 +51,7 @@ module.exports.comentarios_inapropiados = [
     "No tienen dedicación ni preparación los profesores",
     "Relacionarme con la gente de este colegio fue la experiencia de mi vida",
     "Fue horrible el acto",
-    "Pésimo acto, horrible colegio",
+    "Pésimo acto, horrible colegio",/*
     "No recomiendo para nada esta institución fue una horrible experiencia",
     "Los profesores son una mierda, trataron muy mal a mis hijos",
     "Esa directora se ríe de mis hijos, es una mierda",
@@ -179,7 +179,7 @@ module.exports.comentarios_inapropiados = [
     "Muy autoritario en cuanto a la forma de vestir",
     "Demasiado comunista, como si a Dios le importara cómo van vestidos, y mas en esta época de crisis, super exigentes y nada tolerantes",
     "El profesorado es muy antipático ",
-    "Mucho marketing, pero luego solo quieren niños de diez",/*
+    "Mucho marketing, pero luego solo quieren niños de diez",
     "Falta de profesionalidad",
     "Vagos, atorrantes",
     "Doble moral",

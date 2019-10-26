@@ -51,7 +51,7 @@ module.exports.comentarios_apropiados = [
 "Realmente una genia!! Felicitaciones Lorena Vigna!!", 
 "Hermosa experiencia! Felicitaciones para todos!!!", 
 "Amén", 
-"Hermoso verlos a los chicos participar del Festival en el Patio menor del Cabildo! Felicitaciones!", 
+"Hermoso verlos a los chicos participar del Festival en el Patio menor del Cabildo! Felicitaciones!",/* 
 "Felicitaciones para todos! Hermosa experiencia !", 
 "muy bueno!!!!!felicitaciones !!!!!!!!", 
 "Que orgullo", 
