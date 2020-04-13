@@ -41,7 +41,7 @@ test_apropiado = [
 
 test_inapropiado = [
   "la verdad pésima sucio colegio.",
-  "horrible el acto, son uno asco",
+  "horrible el acto, son un asco",
   "Los chicos parecen boludos como los vistieron",
   "Medio porqueria el acto",
   "La directora es una sinverguenza",
@@ -54,41 +54,44 @@ test_inapropiado = [
   "Ricasa las chicas",
   "Tengo miedo, ese hombre no tiene cuello.",
 ];
+test_inapropiado.forEach((text) => {
+  console.log("Tokenize", mimir.tokenize(text));
+});
 
-const bow_apropiado = [];
-const bow_inapropiado = [];
+// const bow_apropiado = [];
+// const bow_inapropiado = [];
 
-for (let index = 0; index < test_apropiado.length; index++) {
-  bow_apropiado[index] = mimir.bow(test_apropiado[index], diccionario);
-}
+// for (let index = 0; index < test_apropiado.length; index++) {
+//   bow_apropiado[index] = mimir.bow(test_apropiado[index], diccionario);
+// }
 
-for (let index = 0; index < test_inapropiado.length; index++) {
-  bow_inapropiado[index] = mimir.bow(test_inapropiado[index], diccionario);
-}
+// for (let index = 0; index < test_inapropiado.length; index++) {
+//   bow_inapropiado[index] = mimir.bow(test_inapropiado[index], diccionario);
+// }
 
-console.log("------------------- Perceptrón Multicapa ----------------------");
-let c = 0;
-for (let index = 0; index < test_apropiado.length; index++) {
-  let prediccionario = redNeuronal.funcion(bow_apropiado[index]);
-  const vectorResultado = [prediccionario["0"], prediccionario["1"]];
-  if ([maxarg(vectorResultado)] != 0) {
-    c++;
-    console.log("<--->");
-    console.log(">Comentario del error:", test_apropiado[index]);
-    console.log(">Prediccionario del error:", prediccionario);
-  }
-}
-console.log("Error en clase apropiado [%]:", (c * 100) / test_apropiado.length);
+// console.log("------------------- Perceptrón Multicapa ----------------------");
+// let c = 0;
+// for (let index = 0; index < test_apropiado.length; index++) {
+//   let prediccionario = redNeuronal.funcion(bow_apropiado[index]);
+//   const vectorResultado = [prediccionario["0"], prediccionario["1"]];
+//   if ([maxarg(vectorResultado)] != 0) {
+//     c++;
+//     console.log("<--->");
+//     console.log(">Comentario del error:", test_apropiado[index]);
+//     console.log(">Prediccionario del error:", prediccionario);
+//   }
+// }
+// console.log("Error en clase apropiado [%]:", (c * 100) / test_apropiado.length);
 
-let d = 0;
-for (let index = 0; index < test_inapropiado.length; index++) {
-  let prediccionario = redNeuronal.funcion(bow_inapropiado[index]);
-  const vectorResultado = [prediccionario["0"], prediccionario["1"]];
-  if ([maxarg(vectorResultado)] != 1) {
-    d++;
-  }
-}
-console.log(
-  "Error en clase inapropiado [%]:",
-  (d * 100) / test_inapropiado.length
-);
+// let d = 0;
+// for (let index = 0; index < test_inapropiado.length; index++) {
+//   let prediccionario = redNeuronal.funcion(bow_inapropiado[index]);
+//   const vectorResultado = [prediccionario["0"], prediccionario["1"]];
+//   if ([maxarg(vectorResultado)] != 1) {
+//     d++;
+//   }
+// }
+// console.log(
+//   "Error en clase inapropiado [%]:",
+//   (d * 100) / test_inapropiado.length
+// );
