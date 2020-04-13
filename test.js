@@ -28,6 +28,15 @@ test_apropiado = [
   "Buenisimos esos actores",
   "Bellos",
   "Salio re bien la obra",
+  "Lindos vestidos",
+  "Las chicas del 5A salieron hermosas.",
+  "Que el señor este con ustedes",
+  "Que el niñito dios los bendiga a todos magia",
+  "Felices pascuas!!!!!!!",
+  "Tremendas vacaciones",
+  "Me gusto mucho la festividad del viernes santo",
+  "Que bueno que el colegio decidio festejar el carnaval como corresponde este año",
+  "Tenia miedo de no llegar y perderme el acto!",
 ];
 
 test_inapropiado = [
@@ -41,6 +50,9 @@ test_inapropiado = [
   "Me dijeron que la directora es una conchuda",
   "La profe del 4c es media puta",
   "una desgracia el colegio como esta ahora",
+  "Tremenda cola",
+  "Ricasa las chicas",
+  "Tengo miedo, ese hombre no tiene cuello.",
 ];
 
 const bow_apropiado = [];
@@ -80,17 +92,3 @@ console.log(
   "Error en clase inapropiado [%]:",
   (d * 100) / test_inapropiado.length
 );
-
-// Prueba comentario apropiado
-// var prediccionario = redNeuronal.funcion(test_bow_apropiado);
-// console.log("Comentario1: " + test_apropiado);
-// console.log(prediccionario);
-// const vectorResultado = [prediccionario["0"], prediccionario["1"]];
-// // console.log(vector_clases[maxarg(vectorResultado)]);
-
-// // Prueba comentario inapropiado
-// var prediccionarioi = redNeuronal.funcion(test_bow_inapropiado);
-// console.log("Comentario1: " + test_inapropiado);
-// console.log(prediccionarioi);
-// const vectorResultadoi = [prediccionarioi["0"], prediccionarioi["1"]];
-// console.log(vector_clases[maxarg(vectorResultadoi)]);
