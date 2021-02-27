@@ -49,14 +49,15 @@ var red = new brain.NeuralNetwork(),
   });
  
 red.train(entrada,{
-  errorThresh: 0.001, // the acceptable error percentage from training data --> number between 0 and 1
+  errorThresh: 0.00001, // the acceptable error percentage from training data --> number between 0 and 1
   log: true, // true to use console.log, when a function is supplied it is used --> Either true or a function
-  logPeriod: 100, // iterations between logging out --> number greater than 0
-  learningRate: 0.15, // scales with delta to effect training rate --> number between 0 and 1
-  momentum: 0.1, // scales with next layer's change value --> number between 0 and 1
+  logPeriod: 5000, // iterations between logging out --> number greater than 0
+  learningRate: 0.04, // scales with delta to effect training rate --> number between 0 and 1
+  momentum: 0.03, // scales with next layer's change value --> number between 0 and 1
   callback: null, // a periodic call back that can be triggered while training --> null or function
   callbackPeriod: 10, // the number of iterations through the training data between callback calls --> number greater than 0
   timeout: Infinity, // the max number of milliseconds to train for --> number greater than 0
+  iterations: 25000,
 });
 
 const funcionRed= red.toFunction();

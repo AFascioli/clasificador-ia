@@ -22,11 +22,14 @@ test_inapropiado2 = "horrible el acto, son uno asco";
 test_inapropiado3 = "Los chicos parecen boludos como los vistieron";
 test_inapropiado4 = "Medio porqueria el acto";
 test_inapropiado5 = "La directora es una sinverguenza";
-test_inapropiado6 = "No me gusto el acto, medio feo";
-test_inapropiado7 = "Creo que no fue correcto lo que hizo la profe";
+test_inapropiado6 = "La profe es media puta";
+// test_inapropiado6 = "No me gusto el acto, medio feo";
+// test_inapropiado7 = "Creo que no fue correcto lo que hizo la profe";
+test_inapropiado7 = "Me dijeron que la directora es una conchuda";
 test_inapropiado8 = "Me dijeron que la directora es una conchuda";
-test_inapropiado9 = "La profe del 4c es media puta";
-test_inapropiado10 = "una desgracia el colegio como esta ahora";
+test_inapropiado9 = "La profe es media puta";
+// test_inapropiado10 = "una desgracia el colegio como esta ahora";
+test_inapropiado10 = "Los mataria";
 
 test_bow_apropiado = mimir.bow(test_apropiado, diccionario);
 test_bow_apropiado2 = mimir.bow(test_apropiado2, diccionario);
@@ -60,6 +63,9 @@ var Clases = {
 var vector_clases = Object.keys(Clases);
 
 console.log("------------------- Perceptrón Multicapa ----------------------");
+
+let arrayAp = [];
+let arrayIn = [];
 
 // Prueba comentario apropiado
 var prediccionario = redNeuronal.funcion(test_bow_apropiado);
@@ -182,3 +188,41 @@ console.log("Comentario10: "+test_inapropiado10 );
 console.log(prediccionarioi10);
 const vectorResultadoi10 = [prediccionarioi10["0"], prediccionarioi10["1"]];
 console.log(vector_clases[maxarg(vectorResultadoi10)]);
+
+arrayAp.push(vector_clases[maxarg(vectorResultado)])
+arrayAp.push(vector_clases[maxarg(vectorResultado2)])
+arrayAp.push(vector_clases[maxarg(vectorResultado3)])
+arrayAp.push(vector_clases[maxarg(vectorResultado4)])
+arrayAp.push(vector_clases[maxarg(vectorResultado5)])
+arrayAp.push(vector_clases[maxarg(vectorResultado6)])
+arrayAp.push(vector_clases[maxarg(vectorResultado7)])
+arrayAp.push(vector_clases[maxarg(vectorResultado8)])
+arrayAp.push(vector_clases[maxarg(vectorResultado9)])
+arrayAp.push(vector_clases[maxarg(vectorResultado10)])
+arrayIn.push(vector_clases[maxarg(vectorResultadoi)])
+arrayIn.push(vector_clases[maxarg(vectorResultadoi2)])
+arrayIn.push(vector_clases[maxarg(vectorResultadoi3)])
+arrayIn.push(vector_clases[maxarg(vectorResultadoi4)])
+arrayIn.push(vector_clases[maxarg(vectorResultadoi5)])
+arrayIn.push(vector_clases[maxarg(vectorResultadoi6)])
+arrayIn.push(vector_clases[maxarg(vectorResultadoi7)])
+arrayIn.push(vector_clases[maxarg(vectorResultadoi8)])
+arrayIn.push(vector_clases[maxarg(vectorResultadoi9)])
+arrayIn.push(vector_clases[maxarg(vectorResultadoi10)])
+
+let contadorAp = 0;
+arrayAp.forEach(element => {
+  if (element == "APROPIADO") {
+    contadorAp++;
+  }
+});
+
+console.log('Resultados apropiados: ', contadorAp*100/10);
+let contadorIn = 0;
+arrayIn.forEach(element => {
+  if (element == "INAPROPIADO") {
+    contadorIn++;
+  }
+});
+
+console.log('Resultados inapropiados: ', contadorIn*100/10);
